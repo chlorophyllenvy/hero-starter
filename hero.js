@@ -90,8 +90,10 @@ var moves = {
   // This hero will heal nearby friendly champions.
   priest : function(gameData, helpers) {
     var myHero = gameData.activeHero;
-    if (myHero.health < 60) {
+    if (myHero.health < 40) {
       return helpers.findNearestHealthWell(gameData);
+    } else if (myHero.health > 80) {
+      return helpers.findNearestWeakerEnemy(gameData);
     } else {
       return helpers.findNearestTeamMember(gameData);
     }
